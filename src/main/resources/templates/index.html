@@ -5,11 +5,41 @@
     <title>Title</title>
 </head>
 <body>
+<form th:action="@{/search}" method="post">
+    Enter Last Name:<input type="text" name="lastname"/>
+    <input type="submit" value="Search"/>
+</form>
+<table>
 <h2>Results</h2>
-<p>There are [[${total}]] customers in [[${state}]]</p>
-<div th:each="result:${results}">
-    <p th:text="${result.lastName}"/>
-
-</div>
+    <thead>
+    <tr>
+        <!--<th scope="col">#</th>-->
+        <th scope="col">Title</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Street Address</th>
+        <th scope="col">Zip code</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Position ID</th>
+        <th scope="col">Company ID</th>
+        <th scope="col">City ID</th>
+        <th scope="col">State ID</th>
+        <th scope="col">Customer ID</th>
+    </tr>
+    </thead>
+<tr th:each="customer : ${customers}">
+    <td th:text="${customer.title}"></td>
+    <td th:text="${customer.firstName}"></td>
+    <td th:text="${customer.lastName}"></td>
+    <td th:text="${customer.streetAddress}"></td>
+    <td th:text="${customer.zipCode}"></td>
+    <td th:text="${customer.emailAddress}"></td>
+    <td th:text="${customer.positionID}"></td>
+    <td th:text="${customer.companyID}"></td>
+    <td th:text="${customer.cityID}"></td>
+    <td th:text="${customer.stateID}"></td>
+    <td th:text="${customer.id}"></td>
+</tr>
+</table>
 </body>
 </html>
